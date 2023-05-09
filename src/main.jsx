@@ -5,10 +5,10 @@ import './index.css'
 
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
   
-  
 
-import AddCoffee from '../components/AddCoffee.jsx';
-import UpdateCoffee from '../components/UpdateCoffee.jsx';
+import Test from './components/Test.jsx';
+import AddCoffee from './components/AddCoffee.jsx';
+import UpdateCoffee from './components/UpdateCoffee.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +23,12 @@ const router = createBrowserRouter([
     path:'UpdateCoffee',
     element:<UpdateCoffee></UpdateCoffee>
 
+  },
+  {
+    path:'test',
+    element:<Test></Test>
   }
+
 ]);
 
 
