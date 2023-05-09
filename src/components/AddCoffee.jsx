@@ -1,5 +1,7 @@
 import React from "react";
 
+import Swal from 'sweetalert2'
+
 const AddCoffee = () => {
 
     const handleToAdd=event=>{
@@ -14,6 +16,26 @@ const AddCoffee = () => {
         const photo=form.photo.value;
         const newCoffee={name,quantity,supplier,taste,category,details,photo};
         console.log(newCoffee)
+
+        fetch('http://localhost:7000/coffee',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(newCoffee)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'User added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'successful'
+                  })
+            }
+        })
     }
   return (
     <div className="bg-[#F4F3F0] p-24">
